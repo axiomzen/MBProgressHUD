@@ -122,7 +122,9 @@ typedef void (^MBProgressHUDCompletionBlock)();
  * @see animationType
  */
 + (MB_INSTANCETYPE)showHUDAddedTo:(UIView *)view animated:(BOOL)animated;
-
++ (MB_INSTANCETYPE)showHUDAddedTo:(UIView *)view withLabel:(NSString*)label andDetailText:(NSString*)detail animated:(BOOL)animated;
++ (MB_INSTANCETYPE)showHUDAddedTo:(UIView *)view withLabel:(NSString*)label andCustomView:(UIView*)customView animated:(BOOL)animated;
++ (MB_INSTANCETYPE)showHUDAddedTo:(UIView *)view withLabel:(NSString*)label andCustomView:(UIView*)customView animated:(BOOL)animated forDuration:(NSTimeInterval)interval;
 /**
  * Finds the top-most HUD subview and hides it. The counterpart to this method is showHUDAddedTo:animated:.
  *
@@ -352,6 +354,7 @@ typedef void (^MBProgressHUDCompletionBlock)();
 
 /** 
  * Cover the HUD background view with a radial gradient. 
+ * Enabled by default on iOS 7+, disabled by default on previous versions.
  */
 @property (assign) BOOL dimBackground;
 
